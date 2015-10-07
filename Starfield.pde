@@ -113,7 +113,7 @@ class JumboParticle implements Particle//uses inheritance
 	}
 	public void move(){
 		myX+=(Math.sin(angle*2)*speed*2);
-		myY+=(Math.sin(angle*3)*speed);
+		myY+=(Math.cos(angle*3)*speed);
 	}
 	public void show(){
 		noStroke();
