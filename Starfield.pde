@@ -1,5 +1,5 @@
 Particle [] pList;
-int size = 50;
+
 void setup()
 {
 	size(800, 800);
@@ -36,6 +36,7 @@ void draw()
 
 			pList[i]=new NormalParticle();
 		}
+		ellipse(400, 400, 50, 50);
 	}
 }
 class NormalParticle implements Particle
