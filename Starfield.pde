@@ -23,8 +23,10 @@ void draw()
 	for(int i=0; i<pList.length; i++){
 		pList[i].move();
 		pList[i].show();
-		if(i>1)
+		if(i>1){
 			((NormalParticle)pList[i]).wrap();
+			
+		}
 	}
 	ellipse(400, 400, 50, 50);
 	if(mousePressed){
@@ -38,7 +40,15 @@ void draw()
 		}
 		ellipse(400, 400, 50, 50);
 	}
+	if(keyPressed){
+	  for(int i=0;i<pList.length;i++){
+
+	   ((NormalParticle)pList[i]).movin();
+	}
+	}
+
 }
+
 class NormalParticle implements Particle
 {
 	double myX, myY, angle, speed;
@@ -66,6 +76,11 @@ class NormalParticle implements Particle
 	      myX=400;
 	    }
  	}
+ 	void movin(){
+ 		 myX-=(Math.cos(angle)*speed)*2;
+		myY-=(Math.sin(angle)*speed)*2;
+ 	}
+ 	
 }
 interface Particle
 {
