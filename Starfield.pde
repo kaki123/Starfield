@@ -3,6 +3,7 @@ Particle [] pList;
 void setup()
 {
 	size(800, 800);
+
 	background(0);
 	ellipse(400, 400, 50, 50);
 	pList= new Particle[500];
@@ -25,26 +26,27 @@ void draw()
 		pList[i].show();
 		if(i>1){
 			((NormalParticle)pList[i]).wrap();
-			
 		}
 	}
-	ellipse(400, 400, 50, 50);
+
+	ellipse(400, 400, 50,50);
+
+	
+
 	if(mousePressed){
 		background(0,0,0);
 		
 		pList= new Particle[600];
 
 		for(int i=0;i<pList.length;i++){
-
 			pList[i]=new NormalParticle();
 		}
-		ellipse(400, 400, 50, 50);
+		//ellipse(400, 400, 50, 50);
 	}
 	if(keyPressed){
 	  for(int i=0;i<pList.length;i++){
-
-	   ((NormalParticle)pList[i]).movin();
-	}
+	   		((NormalParticle)pList[i]).movin();
+		}
 	}
 
 }
@@ -90,13 +92,14 @@ interface Particle
 
 class OddballParticle implements Particle{
 	double myX, myY, angle, speed;
-	int c;
+	int c,a;
 	OddballParticle(){
 		c= color(((int)(Math.random()*255)+245),((int)(Math.random()*255)+245),((int)(Math.random()*255)+245));
 		myX= 300;
 		myY=300;
 		angle= Math.random()*3*Math.PI;
 		speed=Math.random()*4;
+
 	}
 	public void move(){
 		myX+=(Math.sin(angle*2)*speed*2);
@@ -105,7 +108,7 @@ class OddballParticle implements Particle{
 	public void show(){
 		noStroke();
 		fill(c);
-		ellipse((float)myX, (float)myY, 30, 30);
+		ellipse((float)myX, (float)myY, 30+(int)(Math.random()*20), 30+(int)(Math.random()*20));
 
 	}
 	
@@ -121,6 +124,7 @@ class JumboParticle implements Particle//uses inheritance
 		myY=500;
 		angle= Math.random()*3*Math.PI;
 		speed=Math.random()*4;
+		
 	}
 	public void move(){
 		myX+=(Math.sin(angle*2)*speed*2);
@@ -129,7 +133,7 @@ class JumboParticle implements Particle//uses inheritance
 	public void show(){
 		noStroke();
 		fill(c);
-		ellipse((float)myX, (float)myY, 50, 50);
+		ellipse((float)myX, (float)myY, 50+(int)(Math.random()*20), 50+(int)(Math.random()*20));
 
 	}
 	
