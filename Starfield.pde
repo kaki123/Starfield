@@ -60,7 +60,7 @@ class NormalParticle implements Particle
 		myX= mouseX;
 		myY=mouseY;
 		angle= Math.random()*2*Math.PI;
-		speed=Math.random()*4;
+		speed=(int)((Math.random()*2)+3);
 	}
 	public void move(){
 		myX+=(Math.cos(angle)*speed);
